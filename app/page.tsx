@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import InstagramFeed, {
   INSTAGRAM_PROFILE_URL,
 } from "./components/InstagramFeed";
@@ -72,9 +73,14 @@ export default function Home() {
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-brand)]">
             Électricien à La Réunion
           </p>
-          <h1 className="mt-4 text-5xl font-extrabold tracking-tight text-white sm:text-6xl">
-            MGP ELEC
-          </h1>
+          <Image
+            src="/logo-mgpelec.png"
+            alt="MGPElec"
+            width={1407}
+            height={1118}
+            priority
+            className="mx-auto mt-4 h-32 w-auto sm:h-40"
+          />
           <p className="mt-4 text-xl italic text-slate-300">
             « Éclairons votre quotidien avec expertise ! »
           </p>
