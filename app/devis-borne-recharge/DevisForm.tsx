@@ -29,7 +29,10 @@ const PUISSANCE_OPTIONS: PuissanceOption[] = [
   },
   { label: "11 kW", price: null },
   { label: "Sans borne (pose seule)", price: 0 },
+  { label: "Autre borne (précisez)", price: null },
 ];
+
+const AUTRE_BORNE_LABEL = "Autre borne (précisez)";
 
 function getPuissanceOption(label: string | null) {
   return PUISSANCE_OPTIONS.find((option) => option.label === label);
@@ -206,6 +209,7 @@ type SendStatus = "idle" | "sending" | "success" | "error";
 export default function DevisForm() {
   const [selection, setSelection] = useState(initialSelection);
   const [distanceMeters, setDistanceMeters] = useState(DISTANCE_MIN);
+  const [autreBorneDetails, setAutreBorneDetails] = useState("");
   const [visitorEmail, setVisitorEmail] = useState("");
   const [visitorPhone, setVisitorPhone] = useState("");
   const [status, setStatus] = useState<SendStatus>("idle");
@@ -235,19 +239,23 @@ export default function DevisForm() {
     );
     summaryLines.splice(3, 0, `Distance du câble : ${distanceMeters} m`);
 
+    if (selection.puissance === AUTRE_BORNE_LABEL && autreBorneDetails.trim()) {
+      summaryLines.push(`Précisions borne demandée : ${autreBorneDetails.trim()}`);
+    }
+
     const priceLines = [
       typeof puissancePrice === "number"
         ? puissancePrice > 0
           ? `Borne (${selection.puissance}) : ${priceFormatter.format(puissancePrice)} €`
           : "Fourniture de la borne : non incluse (pose seule)"
         : onRequest
-          ? "Borne (11 kW) : prix sur devis, à étudier avec vous"
+          ? `Borne (${selection.puissance}) : prix sur devis, à étudier avec vous`
           : null,
       `Câble, fournitures & pose (${distanceMeters} m) : ${priceFormatter.format(cablePrice + POSE_FIXE)} €`,
       totalPrice !== null
         ? `Total estimé TTC : ${priceFormatter.format(totalPrice)} €`
         : onRequest
-          ? "Total : sur devis (puissance 11 kW à étudier)"
+          ? `Total : sur devis (${selection.puissance} à étudier)`
           : "Total estimé : à préciser (puissance non sélectionnée)",
     ].filter((line): line is string => Boolean(line));
 
@@ -376,6 +384,19 @@ export default function DevisForm() {
                 );
               })}
             </div>
+
+            {group.key === "puissance" &&
+              selection.puissance === AUTRE_BORNE_LABEL && (
+                <div className="mt-3">
+                  <textarea
+                    value={autreBorneDetails}
+                    onChange={(event) => setAutreBorneDetails(event.target.value)}
+                    rows={3}
+                    placeholder="Décrivez la borne souhaitée : marque, modèle, puissance, ou tout autre précision..."
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-[var(--color-brand-dark)]"
+                  />
+                </div>
+              )}
           </div>
         ))}
 
@@ -426,7 +447,7 @@ export default function DevisForm() {
           {totalPrice === null && (
             <p className="mt-1 text-sm text-slate-400">
               {onRequest
-                ? "La puissance 11 kW nécessite une étude au cas par cas."
+                ? "Cette option nécessite une étude au cas par cas."
                 : "Choisissez une puissance de borne"}
             </p>
           )}
