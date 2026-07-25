@@ -27,8 +27,8 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:mgpelec974@gmail.com" className="hover:text-white">
-                mgpelec974@gmail.com
+              <a href="mailto:contact@mgpelec.re" className="hover:text-white">
+                contact@mgpelec.re
               </a>
             </li>
             <li>Toute l&apos;île de la Réunion</li>

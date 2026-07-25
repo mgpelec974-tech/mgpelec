@@ -268,10 +268,10 @@ export default function Home() {
               06 92 38 30 69
             </a>
             <a
-              href="mailto:mgpelec974@gmail.com"
+              href="mailto:contact@mgpelec.re"
               className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:border-white"
             >
-              mgpelec974@gmail.com
+              contact@mgpelec.re
             </a>
           </div>
 
