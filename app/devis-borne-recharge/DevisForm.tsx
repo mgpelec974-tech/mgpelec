@@ -243,8 +243,7 @@ export default function DevisForm() {
         : onRequest
           ? "Borne (11 kW) : prix sur devis, à étudier avec vous"
           : null,
-      `Câble & fournitures (${distanceMeters} m) : ${priceFormatter.format(cablePrice)} €`,
-      `Pose, raccordement et mise en service : ${priceFormatter.format(POSE_FIXE)} €`,
+      `Câble, fournitures & pose (${distanceMeters} m) : ${priceFormatter.format(cablePrice + POSE_FIXE)} €`,
       totalPrice !== null
         ? `Total estimé TTC : ${priceFormatter.format(totalPrice)} €`
         : onRequest
@@ -449,12 +448,8 @@ export default function DevisForm() {
                 </span>
               </div>
               <div className="flex justify-between">
-                <span>Câble & fournitures ({distanceMeters} m)</span>
-                <span>{priceFormatter.format(cablePrice)} €</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Pose &amp; mise en service</span>
-                <span>{priceFormatter.format(POSE_FIXE)} €</span>
+                <span>Câble, fournitures & pose ({distanceMeters} m)</span>
+                <span>{priceFormatter.format(cablePrice + POSE_FIXE)} €</span>
               </div>
               <div className="mt-2 flex justify-between border-t border-white/10 pt-2 font-semibold text-white">
                 <span>Total TTC</span>
