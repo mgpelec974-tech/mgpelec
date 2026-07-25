@@ -14,6 +14,10 @@ type PuissanceOption = {
   // null = prix sur devis (étude au cas par cas), 0 = pose seule (pas de borne fournie)
   price: number | null;
   image?: string;
+  // La borne Hager intègre sa propre protection et communique avec le
+  // compteur Linky via le TIC : pas d'interrupteur différentiel/disjoncteur
+  // dédié à ajouter, mais un paramétrage TIC en plus.
+  hasTic?: boolean;
 };
 
 const PUISSANCE_OPTIONS: PuissanceOption[] = [
@@ -21,6 +25,7 @@ const PUISSANCE_OPTIONS: PuissanceOption[] = [
     label: "7,4 kW (borne Hager)",
     price: 1010,
     image: "/produits/hager-7-4kw.png",
+    hasTic: true,
   },
   {
     label: "7 kW Wallbox (monophasé)",
@@ -38,16 +43,28 @@ function getPuissanceOption(label: string | null) {
   return PUISSANCE_OPTIONS.find((option) => option.label === label);
 }
 
-// Calibré sur le devis n°79 (10 m) : câble U1000 R2V 3G10mm² (120 €) +
-// goulottes (55,08 €) = 17,508 €/m de fournitures, + 365 € de pose,
-// raccordement et mise en service (coût fixe quel que soit le mètrage).
-const CABLE_PRICE_PER_METER = 17.508;
-const POSE_FIXE = 365;
+// Calibré sur deux devis réels (câble/goulotte ramenés au mètre de câble) :
+//
+// - Bornes SANS TIC (Wallbox, sans borne, autre, 11 kW) — devis n°75 (8 m,
+//   pose seule) : interrupteur différentiel (189€) + disjoncteur dédié
+//   (20€) + passage du câble/raccordement (180€) + contrôles/essais/mise
+//   en service (40€) = 429€ fixe, + câble & goulotte ≈ 17€/m.
+//
+// - Borne Hager AVEC TIC — devis n°77 (10 m) : protection intégrée à la
+//   borne (pas d'interrupteur/disjoncteur séparés), passage du câble/
+//   raccordement + paramétrage TIC + essais = 365€ fixe, + câble (avec
+//   liaison TIC) & goulotte ≈ 25,43€/m.
+const STANDARD_FIXED_POSE = 429;
+const STANDARD_PER_METER = 17;
+const HAGER_FIXED_POSE = 365;
+const HAGER_PER_METER = 25.43;
 const DISTANCE_MIN = 1;
 const DISTANCE_MAX = 40;
 
-function getCablePrice(meters: number): number {
-  return meters * CABLE_PRICE_PER_METER;
+function getInstallCost(meters: number, hasTic: boolean) {
+  const perMeter = hasTic ? HAGER_PER_METER : STANDARD_PER_METER;
+  const fixed = hasTic ? HAGER_FIXED_POSE : STANDARD_FIXED_POSE;
+  return fixed + meters * perMeter;
 }
 
 function IconHome() {
@@ -224,11 +241,10 @@ export default function DevisForm() {
     ? (selectedPuissance?.price ?? null)
     : undefined;
   const onRequest = selection.puissance !== null && puissancePrice === null;
-  const cablePrice = getCablePrice(distanceMeters);
+  const hasTic = selectedPuissance?.hasTic ?? false;
+  const installCost = getInstallCost(distanceMeters, hasTic);
   const totalPrice =
-    typeof puissancePrice === "number"
-      ? puissancePrice + cablePrice + POSE_FIXE
-      : null;
+    typeof puissancePrice === "number" ? puissancePrice + installCost : null;
 
   const answeredCount =
     Object.values(selection).filter(Boolean).length + 1; // +1 pour le curseur, toujours renseigné
@@ -251,7 +267,7 @@ export default function DevisForm() {
         : onRequest
           ? `Borne (${selection.puissance}) : prix sur devis, à étudier avec vous`
           : null,
-      `Câble, fournitures & pose (${distanceMeters} m) : ${priceFormatter.format(cablePrice + POSE_FIXE)} €`,
+      `Câble, fournitures & pose${hasTic ? " (avec TIC)" : ""} (${distanceMeters} m) : ${priceFormatter.format(installCost)} €`,
       totalPrice !== null
         ? `Total estimé TTC : ${priceFormatter.format(totalPrice)} €`
         : onRequest
@@ -380,6 +396,11 @@ export default function DevisForm() {
                         {priceTag}
                       </span>
                     )}
+                    {puissanceOption?.hasTic && (
+                      <span className="mt-1 inline-block rounded-full bg-[var(--color-accent-blue)]/10 px-2 py-0.5 text-[10px] font-semibold text-[var(--color-accent-blue)]">
+                        Compatible TIC
+                      </span>
+                    )}
                   </button>
                 );
               })}
@@ -469,9 +490,19 @@ export default function DevisForm() {
                 </span>
               </div>
               <div className="flex justify-between">
-                <span>Câble, fournitures & pose ({distanceMeters} m)</span>
-                <span>{priceFormatter.format(cablePrice + POSE_FIXE)} €</span>
+                <span>
+                  Câble, fournitures & pose{hasTic ? " (avec TIC)" : ""} (
+                  {distanceMeters} m)
+                </span>
+                <span>{priceFormatter.format(installCost)} €</span>
               </div>
+              {hasTic && (
+                <p className="text-xs text-slate-400">
+                  TIC = Télé-Information Client : la borne dialogue avec
+                  votre compteur Linky pour moduler la charge et éviter les
+                  coupures.
+                </p>
+              )}
               <div className="mt-2 flex justify-between border-t border-white/10 pt-2 font-semibold text-white">
                 <span>Total TTC</span>
                 <span>
