@@ -54,36 +54,76 @@ const VILLES = [
 export default function Home() {
   return (
     <main>
-      <section className="bg-gradient-to-b from-amber-50 to-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:items-center md:py-24">
+      {/* Hero */}
+      <section className="relative flex min-h-[420px] items-center justify-center overflow-hidden bg-[var(--color-ink)] px-4 py-24 text-center sm:px-6">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(115deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 2px, transparent 2px, transparent 60px)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[var(--color-brand)]/20 blur-3xl"
+        />
+        <div className="relative">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-brand)]">
+            Électricien à La Réunion
+          </p>
+          <h1 className="mt-4 text-5xl font-extrabold tracking-tight text-white sm:text-6xl">
+            MGP ELEC
+          </h1>
+          <p className="mt-4 text-xl italic text-slate-300">
+            « Éclairons votre quotidien avec expertise ! »
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/devis-borne-recharge"
+              className="rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
+            >
+              Devis borne de recharge
+            </Link>
+            <a
+              href="tel:+262692383069"
+              className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:border-white"
+            >
+              06 92 38 30 69
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
+        <div className="grid gap-10 md:grid-cols-2 md:items-start">
           <div>
-            <p className="inline-block rounded-full bg-[var(--color-brand)]/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-brand-dark)]">
-              Électricien à La Réunion
+            <h2 className="text-3xl font-bold text-[var(--color-heading)] sm:text-4xl">
+              Une expertise pour répondre à vos besoins électriques à
+              l&apos;Île de la Réunion
+            </h2>
+            <p className="mt-6 text-slate-600">
+              Notre équipe est composée d&apos;électriciens expérimentés et
+              passionnés par leur métier.
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-[var(--color-ink)] sm:text-5xl">
-              Votre électricien de confiance,
-              <br />
-              partout à La Réunion
-            </h1>
-            <p className="mt-4 text-lg text-slate-600">
-              MGPElec réalise vos installations, dépannages, mises aux normes
-              et poses de bornes de recharge pour véhicules électriques,
-              partout sur l&apos;île.
+            <p className="mt-4 text-slate-600">
+              Depuis un bon moment, nous mettons notre savoir-faire à votre
+              disposition pour vous assister dans vos projets de rénovation
+              ou autres à l&apos;île de La Réunion.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/devis-borne-recharge"
-                className="rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-[var(--color-ink)] shadow-sm transition-transform hover:scale-105"
-              >
-                Devis borne de recharge
-              </Link>
-              <a
-                href="tel:+262692383069"
-                className="rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-700 transition-colors hover:border-[var(--color-brand-dark)] hover:text-[var(--color-brand-dark)]"
-              >
-                06 92 38 30 69
-              </a>
-            </div>
+            <p className="mt-4 text-slate-600">
+              Nous sommes là pour répondre à vos besoins et vous offrons des
+              solutions personnalisées pour satisfaire vos attentes. Nous
+              nous engageons à intervenir rapidement et à vous offrir un
+              travail impeccable et soigné.
+            </p>
+            <p className="mt-6 flex items-start gap-3 text-lg text-slate-700">
+              <span className="text-3xl leading-none text-[var(--color-accent-blue)]">
+                «
+              </span>
+              Nous sommes là pour répondre à toutes vos demandes !
+            </p>
           </div>
 
           <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
@@ -101,7 +141,7 @@ export default function Home() {
       </section>
 
       <section id="services" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-3xl font-bold text-[var(--color-ink)]">
+        <h2 className="text-3xl font-bold text-[var(--color-heading)]">
           Nos services
         </h2>
         <p className="mt-2 max-w-2xl text-slate-600">
@@ -115,7 +155,7 @@ export default function Home() {
               key={service.title}
               className="rounded-xl border border-black/5 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
             >
-              <h3 className="font-semibold text-[var(--color-ink)]">
+              <h3 className="font-semibold text-[var(--color-heading)]">
                 {service.title}
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -143,7 +183,7 @@ export default function Home() {
             </p>
             <Link
               href="/devis-borne-recharge"
-              className="mt-6 inline-block rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-[var(--color-ink)] shadow-sm transition-transform hover:scale-105"
+              className="mt-6 inline-block rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
             >
               Demander un devis gratuit
             </Link>
@@ -151,7 +191,7 @@ export default function Home() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <ul className="space-y-3 text-slate-200">
               <li>• Étude technique de votre installation électrique</li>
-              <li>• Bornes 3,7 kW à 22 kW selon vos besoins</li>
+              <li>• Bornes Hager et Wallbox selon vos besoins</li>
               <li>• Pose en maison individuelle, copropriété ou entreprise</li>
               <li>• Conseils sur les aides et dispositifs en vigueur</li>
             </ul>
@@ -162,7 +202,7 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-[var(--color-ink)]">
+            <h2 className="text-3xl font-bold text-[var(--color-heading)]">
               Nos réalisations
             </h2>
             <p className="mt-2 max-w-2xl text-slate-600">
@@ -186,7 +226,7 @@ export default function Home() {
       </section>
 
       <section id="zone" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-3xl font-bold text-[var(--color-ink)]">
+        <h2 className="text-3xl font-bold text-[var(--color-heading)]">
           Zone d&apos;intervention
         </h2>
         <p className="mt-2 max-w-2xl text-slate-600">
@@ -196,7 +236,7 @@ export default function Home() {
           {VILLES.map((ville) => (
             <span
               key={ville}
-              className="rounded-full bg-amber-50 px-4 py-2 text-sm font-medium text-slate-700"
+              className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700"
             >
               {ville}
             </span>
@@ -204,25 +244,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
-        <div className="rounded-2xl bg-amber-50 p-8 text-center sm:p-12">
-          <h2 className="text-2xl font-bold text-[var(--color-ink)] sm:text-3xl">
+      <section id="contact" className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+        <div className="rounded-2xl bg-[var(--color-ink)] p-8 text-center sm:p-12">
+          <h2 className="text-2xl font-bold text-white sm:text-3xl">
             Un projet électrique ? Contactez-nous.
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-slate-300">
             Appelez-nous ou envoyez-nous un message, nous répondons
             rapidement.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a
               href="tel:+262692383069"
-              className="rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-[var(--color-ink)] shadow-sm transition-transform hover:scale-105"
+              className="rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
             >
               06 92 38 30 69
             </a>
             <a
               href="mailto:mgpelec974@gmail.com"
-              className="rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-700 transition-colors hover:border-[var(--color-brand-dark)] hover:text-[var(--color-brand-dark)]"
+              className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:border-white"
             >
               mgpelec974@gmail.com
             </a>

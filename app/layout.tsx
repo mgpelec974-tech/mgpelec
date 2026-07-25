@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
@@ -14,10 +14,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className="flex min-h-screen flex-col antialiased">
-        <Header />
-        <div className="flex-1">{children}</div>
-        <Footer />
+      <body className="flex min-h-screen flex-col antialiased lg:flex-row">
+        <Sidebar />
+        <div className="flex flex-1 flex-col lg:pl-64">
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

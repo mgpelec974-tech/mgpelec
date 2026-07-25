@@ -22,21 +22,21 @@ const TRUST_BADGES = [
 
 export default function DevisBorneRechargePage() {
   return (
-    <main className="relative overflow-hidden bg-gradient-to-b from-amber-50 via-white to-white">
+    <main className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[var(--color-brand)]/20 blur-3xl [animation:blob-float_9s_ease-in-out_infinite]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-24 top-40 h-72 w-72 rounded-full bg-amber-200/30 blur-3xl [animation:blob-float_11s_ease-in-out_infinite]"
+        className="pointer-events-none absolute -left-24 top-40 h-72 w-72 rounded-full bg-[var(--color-accent-blue)]/10 blur-3xl [animation:blob-float_11s_ease-in-out_infinite]"
       />
 
       <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <p className="inline-block rounded-full bg-[var(--color-brand)]/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-brand-dark)]">
           Simulateur de devis instantané
         </p>
-        <h1 className="mt-3 text-3xl font-extrabold text-[var(--color-ink)] sm:text-4xl">
+        <h1 className="mt-3 text-3xl font-extrabold text-[var(--color-heading)] sm:text-4xl">
           Votre borne de recharge, chiffrée en direct
         </h1>
         <p className="mt-4 max-w-2xl text-slate-600">
@@ -51,7 +51,7 @@ export default function DevisBorneRechargePage() {
               key={step}
               className="flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm"
             >
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-brand)] text-xs font-bold text-[var(--color-ink)]">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-brand)] text-xs font-bold text-white">
                 {i + 1}
               </span>
               {step}

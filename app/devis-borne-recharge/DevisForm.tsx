@@ -347,7 +347,7 @@ export default function DevisForm() {
                     aria-pressed={isActive}
                     className={`relative rounded-xl border px-4 py-3 text-left text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? "border-[var(--color-brand-dark)] bg-amber-50 text-[var(--color-ink)] shadow-sm ring-1 ring-[var(--color-brand)]"
+                        ? "border-[var(--color-brand-dark)] bg-red-50 text-[var(--color-heading)] shadow-sm ring-1 ring-[var(--color-brand)]"
                         : "border-slate-200 text-slate-600 hover:-translate-y-0.5 hover:border-[var(--color-brand-dark)] hover:shadow-sm"
                     }`}
                   >

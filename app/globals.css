@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+  --color-brand: #e9322d;
+  --color-brand-dark: #c22823;
+  --color-ink: #10161f;
+  --color-sidebar: #151b25;
+  --color-heading: #4b5a6a;
+  --color-accent-blue: #129fea;
+}
+
 @keyframes price-pop {
   0% {
     transform: scale(0.92);
@@ -19,4 +28,13 @@
   50% {
     transform: translate(20px, -15px) scale(1.05);
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #1f2937;
+  background: #ffffff;
 }
