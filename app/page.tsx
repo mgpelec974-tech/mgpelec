@@ -3,6 +3,7 @@ import Image from "next/image";
 import InstagramFeed, {
   INSTAGRAM_PROFILE_URL,
 } from "./components/InstagramFeed";
+import ContactForm from "./components/ContactForm";
 
 const SERVICES = [
   {
@@ -273,6 +274,8 @@ export default function Home() {
               mgpelec974@gmail.com
             </a>
           </div>
+
+          <ContactForm />
         </div>
       </section>
     </main>
