@@ -74,7 +74,7 @@ export default function Home() {
             Électricien à La Réunion
           </p>
           <Image
-            src="/logo-mgpelec.png"
+            src="/logo-mgpelec-transparent.png"
             alt="MGPElec"
             width={1407}
             height={1118}

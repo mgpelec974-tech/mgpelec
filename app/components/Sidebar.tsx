@@ -14,7 +14,7 @@ function Logo() {
     <Link href="/" className="flex items-center gap-3">
       <span className="relative block h-11 w-11 shrink-0 overflow-hidden rounded-md">
         <Image
-          src="/logo-mgpelec.png"
+          src="/logo-mgpelec-transparent.png"
           alt="Logo MGPElec"
           fill
           sizes="44px"
