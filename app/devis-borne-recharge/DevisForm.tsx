@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import Image from "next/image";
 
 const PHONE_DISPLAY = "06 92 38 30 69";
 const PHONE_HREF = "tel:+262692383069";
@@ -8,12 +9,27 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type GroupKey = "logement" | "stationnement" | "puissance" | "tableau";
 
-// null = prix sur devis (étude au cas par cas), 0 = pose seule (pas de borne fournie)
-const PUISSANCE_PRICES: Record<string, number | null> = {
-  "7,4 kW (borne Hager)": 1010,
-  "11 kW": null,
-  "Sans borne (pose seule)": 0,
+type PuissanceOption = {
+  label: string;
+  // null = prix sur devis (étude au cas par cas), 0 = pose seule (pas de borne fournie)
+  price: number | null;
+  image?: string;
 };
+
+const PUISSANCE_OPTIONS: PuissanceOption[] = [
+  { label: "7,4 kW (borne Hager)", price: 1010 },
+  {
+    label: "7 kW Wallbox (monophasé)",
+    price: 550,
+    image: "/produits/wallbox-7kw-monophase.png",
+  },
+  { label: "11 kW", price: null },
+  { label: "Sans borne (pose seule)", price: 0 },
+];
+
+function getPuissanceOption(label: string | null) {
+  return PUISSANCE_OPTIONS.find((option) => option.label === label);
+}
 
 // Calibré sur le devis n°79 (10 m) : câble U1000 R2V 3G10mm² (120 €) +
 // goulottes (55,08 €) = 17,508 €/m de fournitures, + 365 € de pose,
@@ -154,7 +170,7 @@ const GROUPS: { key: GroupKey; label: string; options: string[] }[] = [
   {
     key: "puissance",
     label: "Puissance souhaitée",
-    options: Object.keys(PUISSANCE_PRICES),
+    options: PUISSANCE_OPTIONS.map((option) => option.label),
   },
   {
     key: "tableau",
@@ -195,8 +211,9 @@ export default function DevisForm() {
     setSelection((prev) => ({ ...prev, [key]: value }));
   };
 
+  const selectedPuissance = getPuissanceOption(selection.puissance);
   const puissancePrice = selection.puissance
-    ? PUISSANCE_PRICES[selection.puissance]
+    ? (selectedPuissance?.price ?? null)
     : undefined;
   const onRequest = selection.puissance !== null && puissancePrice === null;
   const cablePrice = getCablePrice(distanceMeters);
@@ -307,8 +324,9 @@ export default function DevisForm() {
             <div className="mt-3 grid gap-2 sm:grid-cols-3">
               {group.options.map((option) => {
                 const isActive = selection[group.key] === option;
-                const optionPrice =
-                  group.key === "puissance" ? PUISSANCE_PRICES[option] : null;
+                const puissanceOption =
+                  group.key === "puissance" ? getPuissanceOption(option) : undefined;
+                const optionPrice = puissanceOption?.price ?? null;
                 const priceTag =
                   group.key === "puissance"
                     ? optionPrice === null
@@ -332,6 +350,17 @@ export default function DevisForm() {
                     {isActive && (
                       <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-brand-dark)] text-white">
                         <IconCheck />
+                      </span>
+                    )}
+                    {puissanceOption?.image && (
+                      <span className="relative mb-2 block h-20 w-full overflow-hidden rounded-lg bg-slate-100">
+                        <Image
+                          src={puissanceOption.image}
+                          alt={option}
+                          fill
+                          sizes="200px"
+                          className="object-cover"
+                        />
                       </span>
                     )}
                     <span className="block pr-4">{option}</span>
