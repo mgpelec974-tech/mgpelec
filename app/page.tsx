@@ -38,21 +38,6 @@ const SERVICES = [
   },
 ];
 
-const VILLES = [
-  "Saint-Denis",
-  "Saint-Paul",
-  "Saint-Pierre",
-  "Le Tampon",
-  "Saint-André",
-  "Saint-Louis",
-  "Saint-Benoît",
-  "Le Port",
-  "Sainte-Marie",
-  "Sainte-Suzanne",
-  "Étang-Salé",
-  "Petite-Île",
-];
-
 export default function Home() {
   return (
     <main>
@@ -233,21 +218,30 @@ export default function Home() {
       </section>
 
       <section id="zone" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-3xl font-bold text-[var(--color-heading)]">
-          Zone d&apos;intervention
-        </h2>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          MGPElec intervient sur toute l&apos;île de la Réunion, notamment à :
-        </p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {VILLES.map((ville) => (
-            <span
-              key={ville}
-              className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700"
-            >
-              {ville}
-            </span>
-          ))}
+        <div className="grid gap-8 md:grid-cols-2 md:items-center">
+          <div>
+            <h2 className="text-3xl font-bold text-[var(--color-heading)]">
+              Zone d&apos;intervention
+            </h2>
+            <p className="mt-4 text-slate-600">
+              MGPElec intervient sur <strong>toute l&apos;île de la
+              Réunion</strong>, du littoral aux hauts, pour tous vos projets
+              électriques.
+            </p>
+            <p className="mt-4 text-slate-600">
+              Basés à Saint-André, nous nous déplaçons rapidement chez vous
+              où que vous soyez sur l&apos;île.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-black/5 shadow-sm">
+            <iframe
+              title="Zone d'intervention MGPElec - Île de la Réunion"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=55.15%2C-21.42%2C55.85%2C-20.85&layer=mapnik"
+              className="h-80 w-full border-0 sm:h-96"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
 
