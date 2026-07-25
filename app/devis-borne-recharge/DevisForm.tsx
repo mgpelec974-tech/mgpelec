@@ -17,7 +17,11 @@ type PuissanceOption = {
 };
 
 const PUISSANCE_OPTIONS: PuissanceOption[] = [
-  { label: "7,4 kW (borne Hager)", price: 1010 },
+  {
+    label: "7,4 kW (borne Hager)",
+    price: 1010,
+    image: "/produits/hager-7-4kw.png",
+  },
   {
     label: "7 kW Wallbox (monophasé)",
     price: 550,
