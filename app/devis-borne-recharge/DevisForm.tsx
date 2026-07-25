@@ -32,6 +32,12 @@ const PUISSANCE_OPTIONS: PuissanceOption[] = [
     price: 550,
     image: "/produits/wallbox-7kw-monophase.png",
   },
+  {
+    label: "7,4 kW (Schneider Electric)",
+    price: 1015,
+    image: "/produits/schneider-7-4kw.png",
+    hasTic: true,
+  },
   { label: "11 kW", price: null },
   { label: "Sans borne (pose seule)", price: 0 },
   { label: "Autre borne (précisez)", price: null },
