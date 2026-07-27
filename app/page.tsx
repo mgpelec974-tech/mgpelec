@@ -68,7 +68,7 @@ export default function Home() {
             width={1407}
             height={1118}
             priority
-            className="mx-auto mt-4 h-32 w-auto sm:h-40"
+            className="mx-auto mt-4 h-48 w-auto sm:h-64"
           />
           <p className="mt-4 text-xl italic text-slate-300">
             « Éclairons votre quotidien avec expertise ! »
