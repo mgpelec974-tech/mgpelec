@@ -224,13 +224,16 @@ export default function Home() {
               Zone d&apos;intervention
             </h2>
             <p className="mt-4 text-slate-600">
-              MGPElec intervient sur <strong>toute l&apos;île de la
-              Réunion</strong>, du littoral aux hauts, pour tous vos projets
-              électriques.
+              Du littoral aux hauts, MGPElec accompagne particuliers,
+              professionnels et copropriétés dans{" "}
+              <strong>toute l&apos;île de la Réunion</strong> — installation
+              électrique, dépannage, mise aux normes ou pose de borne de
+              recharge.
             </p>
             <p className="mt-4 text-slate-600">
-              Basés à Saint-André, nous nous déplaçons rapidement chez vous
-              où que vous soyez sur l&apos;île.
+              Basés à Saint-André, nous intervenons rapidement chez vous,
+              avec la même exigence de qualité sur chaque chantier, où que
+              vous soyez sur l&apos;île.
             </p>
           </div>
           <div className="overflow-hidden rounded-2xl border border-black/5 shadow-sm">
