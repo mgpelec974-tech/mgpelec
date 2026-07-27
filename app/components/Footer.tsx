@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-black/10 bg-[var(--color-sidebar)] text-slate-300">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div>
           <p className="text-lg font-bold text-white">
             MGP<span className="text-[var(--color-brand)]">Elec</span>
@@ -51,8 +51,41 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/#zone" className="hover:text-white">
+                Zone d&apos;intervention
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-white">
+            Informations légales
+          </p>
+          <ul className="mt-2 space-y-1 text-sm">
+            <li>
+              <Link href="/mentions-legales" className="hover:text-white">
+                Mentions légales
+              </Link>
+            </li>
+            <li>
               <Link href="/cgv" className="hover:text-white">
                 Conditions Générales de Vente
+              </Link>
+            </li>
+            <li>
+              <Link href="/cgu" className="hover:text-white">
+                Conditions Générales d&apos;Utilisation
+              </Link>
+            </li>
+            <li>
+              <Link href="/confidentialite" className="hover:text-white">
+                Politique de confidentialité
+              </Link>
+            </li>
+            <li>
+              <Link href="/cookies" className="hover:text-white">
+                Politique Cookies
               </Link>
             </li>
           </ul>
@@ -61,8 +94,16 @@ export default function Footer() {
 
       <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-slate-400 sm:px-6">
         © {year} MGPElec. Tous droits réservés. —{" "}
+        <Link href="/mentions-legales" className="hover:text-white">
+          Mentions légales
+        </Link>{" "}
+        —{" "}
         <Link href="/cgv" className="hover:text-white">
           CGV
+        </Link>{" "}
+        —{" "}
+        <Link href="/confidentialite" className="hover:text-white">
+          Confidentialité
         </Link>
       </div>
     </footer>
