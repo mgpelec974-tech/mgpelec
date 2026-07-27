@@ -521,6 +521,12 @@ export default function DevisForm() {
                 TVA non applicable, art. 293 B du CGI. Sujet à confirmation
                 selon votre installation électrique.
               </p>
+              <div className="mt-3 flex items-center gap-2 rounded-lg bg-white/5 px-3 py-2 text-xs text-slate-300">
+                <span className="rounded bg-white px-1.5 py-0.5 text-[10px] font-bold text-[var(--color-ink)]">
+                  alma
+                </span>
+                Paiement en plusieurs fois disponible avec Alma
+              </div>
             </div>
           )}
         </div>

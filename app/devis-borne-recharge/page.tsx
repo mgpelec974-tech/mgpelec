@@ -18,6 +18,7 @@ const TRUST_BADGES = [
   "Assurance décennale",
   "RC Pro",
   "Devis gratuit",
+  "Paiement en plusieurs fois avec Alma",
 ];
 
 export default function DevisBorneRechargePage() {
