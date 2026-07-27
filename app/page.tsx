@@ -136,6 +136,7 @@ export default function Home() {
               <li>✔ Intervention sur toute l&apos;île de la Réunion</li>
               <li>✔ Spécialiste installation de bornes de recharge</li>
               <li>✔ Travail soigné et aux normes en vigueur</li>
+              <li>✔ Facilité de paiement en 3x, 4x ou 10x avec Alma</li>
             </ul>
           </div>
         </div>
