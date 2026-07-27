@@ -9,19 +9,17 @@ const NAV_LINKS = [
   { href: "/#contact", label: "Contact" },
 ];
 
-function Logo() {
+function Logo({ className }: { className: string }) {
   return (
     <Link href="/" className="flex items-center">
-      <span className="relative block h-14 w-14 shrink-0">
-        <Image
-          src="/logo-icon.png"
-          alt="Logo MGPElec"
-          fill
-          sizes="56px"
-          className="object-contain"
-          priority
-        />
-      </span>
+      <Image
+        src="/logo-mgpelec-transparent.png"
+        alt="Logo MGPElec"
+        width={1407}
+        height={1118}
+        className={className}
+        priority
+      />
     </Link>
   );
 }
@@ -32,7 +30,7 @@ export default function Sidebar() {
       {/* Sidebar (desktop) */}
       <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 flex-col justify-between bg-[var(--color-sidebar)] px-6 py-8 lg:flex">
         <div>
-          <Logo />
+          <Logo className="h-auto w-full" />
           <nav className="mt-12 flex flex-col gap-1 text-sm font-medium text-slate-300">
             {NAV_LINKS.map((link) => (
               <Link
@@ -57,7 +55,7 @@ export default function Sidebar() {
       {/* Top bar (mobile) */}
       <header className="sticky top-0 z-50 bg-[var(--color-sidebar)] lg:hidden">
         <div className="flex items-center justify-between gap-4 px-4 py-3">
-          <Logo />
+          <Logo className="h-12 w-auto" />
           <a
             href="tel:+262692383069"
             className="rounded-full bg-[var(--color-brand)] px-4 py-2 text-sm font-semibold text-white shadow-sm"
