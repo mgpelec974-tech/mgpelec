@@ -10,11 +10,13 @@ const SERVICES = [
     title: "Installation électrique",
     description:
       "Installation complète ou partielle pour constructions neuves, extensions et rénovations.",
+    image: "/services/installation-electrique.png",
   },
   {
     title: "Mise aux normes",
     description:
       "Mise en conformité de votre tableau électrique et de votre installation (norme NF C 15-100).",
+    image: "/services/mise-aux-normes.webp",
   },
   {
     title: "Dépannage électricité",
@@ -30,6 +32,7 @@ const SERVICES = [
     title: "Rénovation électrique",
     description:
       "Remplacement de tableaux, câblage et appareillage vétustes ou dangereux.",
+    image: "/services/renovation-electrique.png",
   },
   {
     title: "Éclairage & domotique",
@@ -145,14 +148,27 @@ export default function Home() {
           {SERVICES.map((service) => (
             <div
               key={service.title}
-              className="rounded-xl border border-black/5 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-shadow hover:shadow-md"
             >
-              <h3 className="font-semibold text-[var(--color-heading)]">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                {service.description}
-              </p>
+              <div className="p-6">
+                <h3 className="font-semibold text-[var(--color-heading)]">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  {service.description}
+                </p>
+              </div>
+              {service.image && (
+                <div className="relative h-40 w-full bg-slate-100">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>
