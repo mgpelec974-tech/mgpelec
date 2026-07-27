@@ -38,6 +38,7 @@ const SERVICES = [
     title: "Éclairage & domotique",
     description:
       "Éclairage intérieur/extérieur, prises, interrupteurs connectés et automatismes.",
+    image: "/services/eclairage-domotique.png",
   },
 ];
 
