@@ -50,12 +50,20 @@ export default function Footer() {
                 Devis borne de recharge
               </Link>
             </li>
+            <li>
+              <Link href="/cgv" className="hover:text-white">
+                Conditions Générales de Vente
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-slate-400 sm:px-6">
-        © {year} MGPElec. Tous droits réservés.
+        © {year} MGPElec. Tous droits réservés. —{" "}
+        <Link href="/cgv" className="hover:text-white">
+          CGV
+        </Link>
       </div>
     </footer>
   );
