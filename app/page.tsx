@@ -22,11 +22,13 @@ const SERVICES = [
     title: "Dépannage électricité",
     description:
       "Intervention rapide pour panne, disjoncteur qui saute, court-circuit ou perte de courant.",
+    image: "/services/depannage-electricite.jpg",
   },
   {
     title: "Bornes de recharge (IRVE)",
     description:
       "Installation de borne de recharge pour véhicule électrique, à domicile ou en entreprise.",
+    image: "/services/bornes-irve.png",
   },
   {
     title: "Rénovation électrique",
