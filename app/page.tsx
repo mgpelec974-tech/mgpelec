@@ -224,8 +224,8 @@ export default function Home() {
               Zone d&apos;intervention
             </h2>
             <p className="mt-4 text-slate-600">
-              Du littoral aux hauts, MGPElec accompagne particuliers,
-              professionnels et copropriétés dans{" "}
+              MGPElec accompagne particuliers, professionnels et
+              copropriétés dans{" "}
               <strong>toute l&apos;île de la Réunion</strong> — installation
               électrique, dépannage, mise aux normes ou pose de borne de
               recharge.
