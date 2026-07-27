@@ -121,6 +121,9 @@ export default function Home() {
                 «
               </span>
               Nous sommes là pour répondre à toutes vos demandes !
+              <span className="text-3xl leading-none text-[var(--color-accent-blue)]">
+                »
+              </span>
             </p>
           </div>
 
