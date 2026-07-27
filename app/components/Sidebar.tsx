@@ -11,22 +11,16 @@ const NAV_LINKS = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-3">
-      <span className="relative block h-11 w-11 shrink-0 overflow-hidden rounded-md">
+    <Link href="/" className="flex items-center">
+      <span className="relative block h-14 w-14 shrink-0">
         <Image
-          src="/logo-mgpelec-transparent.png"
+          src="/logo-icon.png"
           alt="Logo MGPElec"
           fill
-          sizes="44px"
+          sizes="56px"
           className="object-contain"
           priority
         />
-      </span>
-      <span className="text-lg font-bold leading-tight tracking-tight text-white">
-        MGP <span className="text-[var(--color-brand)]">ELEC</span>
-        <span className="block text-[10px] font-medium uppercase tracking-wider text-slate-400">
-          Que le courant passe
-        </span>
       </span>
     </Link>
   );
