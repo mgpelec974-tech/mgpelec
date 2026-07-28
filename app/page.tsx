@@ -156,11 +156,6 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-[var(--color-heading)]">
           Nos services
         </h2>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Une expertise complète en électricité générale, du dépannage à
-          l&apos;installation de bornes de recharge.
-        </p>
-
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
             <div
