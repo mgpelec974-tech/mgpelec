@@ -48,14 +48,14 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative flex min-h-[760px] items-end overflow-hidden bg-[var(--color-ink)] px-4 pb-12 pt-24 text-center sm:px-6">
+      <section className="relative flex min-h-[640px] items-end overflow-hidden bg-[var(--color-ink)] px-4 pb-12 pt-24 text-center sm:px-6">
         <Image
           src="/hero-bg.png"
           alt="MGPElec — Électricien à La Réunion"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-top"
+          className="object-cover object-center"
         />
         <div
           aria-hidden
