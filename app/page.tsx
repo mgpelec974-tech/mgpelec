@@ -89,12 +89,6 @@ export default function Home() {
             >
               Simulez votre devis borne de recharge
             </Link>
-            <a
-              href="tel:+262692383069"
-              className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:border-white"
-            >
-              06 92 38 30 69
-            </a>
           </div>
         </div>
       </section>
