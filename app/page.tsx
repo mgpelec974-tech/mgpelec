@@ -66,13 +66,7 @@ export default function Home() {
           }}
         />
         <div className="relative mx-auto w-full max-w-xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-brand)]">
-            Électricien à La Réunion
-          </p>
-          <p className="mt-3 text-xl italic text-slate-200">
-            « Éclairons votre quotidien avec expertise ! »
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/devis-borne-recharge"
               className="rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
