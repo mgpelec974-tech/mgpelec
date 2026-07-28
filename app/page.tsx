@@ -59,6 +59,22 @@ export default function Home() {
         />
         <div
           aria-hidden
+          className="pointer-events-none absolute inset-0 mix-blend-screen [animation:lightning-flicker_6s_infinite]"
+          style={{
+            background:
+              "radial-gradient(circle at 20% 25%, rgba(120,190,255,0.9), transparent 45%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 mix-blend-screen [animation:lightning-flicker_7.5s_infinite_1.8s]"
+          style={{
+            background:
+              "radial-gradient(circle at 82% 20%, rgba(120,190,255,0.9), transparent 45%)",
+          }}
+        />
+        <div
+          aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
