@@ -81,7 +81,7 @@ export default function Home() {
               href="/devis-borne-recharge"
               className="rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
             >
-              Simulez votre devis
+              Simulez votre devis borne de recharge
             </Link>
             <a
               href="tel:+262692383069"
