@@ -62,7 +62,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, var(--color-ink) 0%, var(--color-ink) 45%, transparent 78%)",
+              "linear-gradient(to top, var(--color-ink) 0%, transparent 22%)",
           }}
         />
         <div className="relative mx-auto w-full max-w-xl">
