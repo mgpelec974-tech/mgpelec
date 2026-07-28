@@ -98,29 +98,28 @@ export default function Home() {
         <div className="grid gap-10 md:grid-cols-2 md:items-start">
           <div>
             <h2 className="text-3xl font-bold text-[var(--color-heading)] sm:text-4xl">
-              Une expertise pour répondre à vos besoins électriques à
-              l&apos;Île de la Réunion
+              Une expertise électrique reconnue, au service de tous vos
+              projets
             </h2>
             <p className="mt-6 text-slate-600">
-              Notre équipe est composée d&apos;électriciens expérimentés et
-              passionnés par leur métier.
+              Notre équipe d&apos;électriciens qualifiés et expérimentés
+              intervient aussi bien sur des constructions neuves que sur des
+              projets de rénovation, de mise aux normes ou de dépannage.
             </p>
             <p className="mt-4 text-slate-600">
-              Depuis un bon moment, nous mettons notre savoir-faire à votre
-              disposition pour vous assister dans vos projets de rénovation
-              ou autres à l&apos;île de La Réunion.
+              Nous accompagnons particuliers et professionnels avec le même
+              niveau d&apos;exigence : un travail soigné, réalisé dans les
+              règles de l&apos;art et dans les délais annoncés.
             </p>
             <p className="mt-4 text-slate-600">
-              Nous sommes là pour répondre à vos besoins et vous offrons des
-              solutions personnalisées pour satisfaire vos attentes. Nous
-              nous engageons à intervenir rapidement et à vous offrir un
-              travail impeccable et soigné.
+              Votre satisfaction est notre priorité, du premier contact
+              jusqu&apos;à la mise en service de votre installation.
             </p>
             <p className="mt-6 flex items-start gap-3 text-lg text-slate-700">
               <span className="text-3xl leading-none text-[var(--color-accent-blue)]">
                 «
               </span>
-              Nous sommes là pour répondre à toutes vos demandes !
+              Un accompagnement sur-mesure, à chaque étape de votre projet.
               <span className="text-3xl leading-none text-[var(--color-accent-blue)]">
                 »
               </span>
