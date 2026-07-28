@@ -48,32 +48,24 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative flex min-h-[420px] items-center justify-center overflow-hidden bg-[var(--color-ink)] px-4 py-24 text-center sm:px-6">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-40"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(115deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 2px, transparent 2px, transparent 60px)",
-          }}
+      <section className="relative flex min-h-[560px] items-end overflow-hidden bg-[var(--color-ink)] px-4 pb-12 pt-24 text-center sm:px-6">
+        <Image
+          src="/hero-bg.png"
+          alt="MGPElec — Électricien à La Réunion"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[var(--color-brand)]/20 blur-3xl"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/70 to-transparent"
         />
-        <div className="relative">
+        <div className="relative mx-auto w-full max-w-xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-brand)]">
             Électricien à La Réunion
           </p>
-          <Image
-            src="/logo-mgpelec-transparent.png"
-            alt="MGPElec"
-            width={1407}
-            height={1118}
-            priority
-            className="mx-auto mt-4 h-48 w-auto sm:h-64"
-          />
-          <p className="mt-4 text-xl italic text-slate-300">
+          <p className="mt-3 text-xl italic text-slate-200">
             « Éclairons votre quotidien avec expertise ! »
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
