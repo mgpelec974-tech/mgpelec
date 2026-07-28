@@ -59,7 +59,11 @@ export default function Home() {
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/85 to-transparent"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, var(--color-ink) 0%, var(--color-ink) 45%, transparent 78%)",
+          }}
         />
         <div className="relative mx-auto w-full max-w-xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-brand)]">
