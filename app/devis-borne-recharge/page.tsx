@@ -18,7 +18,7 @@ const TRUST_BADGES = [
   "Assurance décennale",
   "RC Pro",
   "Devis gratuit",
-  "Paiement en plusieurs fois avec Alma",
+  "Paiement en plusieurs fois (bientôt disponible)",
 ];
 
 export default function DevisBorneRechargePage() {
@@ -34,7 +34,7 @@ export default function DevisBorneRechargePage() {
       />
 
       <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <p className="inline-block rounded-full bg-[var(--color-brand)]/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-brand-dark)]">
+        <p className="inline-block rounded-full bg-[var(--color-brand)]/20 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-[var(--color-brand-dark)]">
           Simulateur de devis instantané
         </p>
         <h1 className="mt-3 text-3xl font-extrabold text-[var(--color-heading)] sm:text-4xl">

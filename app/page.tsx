@@ -136,9 +136,9 @@ export default function Home() {
               <li>✔ Spécialiste installation de bornes de recharge</li>
               <li>✔ Travail soigné et aux normes en vigueur</li>
               <li className="flex flex-wrap items-center gap-2">
-                <span>✔ Facilité de paiement en 3x, 4x ou 10x avec Alma</span>
+                <span>✔ Facilité de paiement en plusieurs fois</span>
                 <span className="inline-flex items-center gap-0.5 rounded bg-[var(--color-brand)] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-white">
-                  Nouveau !
+                  Bientôt disponible
                 </span>
               </li>
             </ul>
