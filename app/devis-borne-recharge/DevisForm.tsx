@@ -7,7 +7,12 @@ const PHONE_DISPLAY = "06 92 38 30 69";
 const PHONE_HREF = "tel:+262692383069";
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type GroupKey = "logement" | "stationnement" | "puissance" | "tableau";
+type GroupKey =
+  | "secteur"
+  | "logement"
+  | "stationnement"
+  | "puissance"
+  | "tableau";
 
 type PuissanceOption = {
   label: string;
@@ -66,6 +71,20 @@ function getInstallCost(meters: number, hasTic: boolean) {
   const perMeter = hasTic ? HAGER_PER_METER : STANDARD_PER_METER;
   const fixed = hasTic ? HAGER_FIXED_POSE : STANDARD_FIXED_POSE;
   return fixed + meters * perMeter;
+}
+
+function IconMapPin() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+      <path
+        d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinejoin="round"
+      />
+      <circle cx={12} cy={9.5} r={2.3} stroke="currentColor" strokeWidth={1.6} />
+    </svg>
+  );
 }
 
 function IconHome() {
@@ -167,6 +186,7 @@ function IconCheck() {
 }
 
 const GROUP_ICONS: Record<GroupKey, ReactNode> = {
+  secteur: <IconMapPin />,
   logement: <IconHome />,
   stationnement: <IconParking />,
   puissance: <IconBolt />,
@@ -174,6 +194,11 @@ const GROUP_ICONS: Record<GroupKey, ReactNode> = {
 };
 
 const GROUPS: { key: GroupKey; label: string; options: string[] }[] = [
+  {
+    key: "secteur",
+    label: "Secteur de votre domicile",
+    options: ["Nord", "Sud", "Est", "Ouest"],
+  },
   {
     key: "logement",
     label: "Type de logement",
@@ -205,6 +230,7 @@ const GROUPS: { key: GroupKey; label: string; options: string[] }[] = [
 ];
 
 const GROUP_LABELS: Record<GroupKey, string> = {
+  secteur: "Secteur de votre domicile",
   logement: "Type de logement",
   stationnement: "Type de stationnement",
   puissance: "Puissance souhaitée",
@@ -212,6 +238,7 @@ const GROUP_LABELS: Record<GroupKey, string> = {
 };
 
 const initialSelection: Record<GroupKey, string | null> = {
+  secteur: null,
   logement: null,
   stationnement: null,
   puissance: null,
@@ -254,7 +281,7 @@ export default function DevisForm() {
     const summaryLines = GROUPS.map(
       (group) => `${GROUP_LABELS[group.key]} : ${selection[group.key] ?? "-"}`
     );
-    summaryLines.splice(3, 0, `Distance du câble : ${distanceMeters} m`);
+    summaryLines.splice(4, 0, `Distance du câble : ${distanceMeters} m`);
 
     if (selection.puissance === AUTRE_BORNE_LABEL && autreBorneDetails.trim()) {
       summaryLines.push(`Précisions borne demandée : ${autreBorneDetails.trim()}`);
@@ -327,10 +354,10 @@ export default function DevisForm() {
       <div className="space-y-8 rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
         <div className="flex items-center justify-between">
           <p className="text-sm font-semibold text-slate-500">
-            Configuration ({Math.min(answeredCount, 5)}/5)
+            Configuration ({Math.min(answeredCount, 6)}/6)
           </p>
           <div className="flex gap-1">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {Array.from({ length: 6 }).map((_, i) => (
               <span
                 key={i}
                 className={`h-1.5 w-6 rounded-full transition-colors duration-300 ${
