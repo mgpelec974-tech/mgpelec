@@ -39,6 +39,10 @@ const REVIEWS: Review[] = [
   },
 ];
 
+function maskAuthor(author: string) {
+  return `${author.slice(0, 3)}...`;
+}
+
 function Stars({ rating }: { rating: number }) {
   return (
     <span className="text-[var(--color-brand)]" aria-hidden>
@@ -70,7 +74,7 @@ export default function GoogleReviews() {
                 {review.author.charAt(0)}
               </span>
               <p className="text-sm font-semibold text-[var(--color-heading)]">
-                {review.author}
+                {maskAuthor(review.author)}
               </p>
             </div>
             <Stars rating={review.rating} />
