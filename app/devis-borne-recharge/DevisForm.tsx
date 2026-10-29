@@ -401,8 +401,6 @@ export default function DevisForm() {
                 const puissanceOption =
                   group.key === "puissance" ? getPuissanceOption(option) : undefined;
                 const optionPrice = puissanceOption?.price ?? null;
-                const secteurOption =
-                  group.key === "secteur" ? getSecteurOption(option) : undefined;
                 const priceTag =
                   group.key === "puissance"
                     ? optionPrice === null
@@ -410,9 +408,7 @@ export default function DevisForm() {
                       : optionPrice === 0
                         ? "Fourniture non incluse"
                         : `${priceFormatter.format(optionPrice)} €`
-                    : group.key === "secteur" && secteurOption
-                      ? `+${priceFormatter.format(secteurOption.price)} €`
-                      : null;
+                    : null;
                 return (
                   <button
                     key={option}
@@ -547,12 +543,6 @@ export default function DevisForm() {
                 </span>
                 <span>{priceFormatter.format(installCost)} €</span>
               </div>
-              {selection.secteur && (
-                <div className="flex justify-between">
-                  <span>Déplacement secteur ({selection.secteur})</span>
-                  <span>{priceFormatter.format(secteurFee)} €</span>
-                </div>
-              )}
               {hasTic && (
                 <p className="text-xs text-slate-400">
                   TIC = Télé-Information Client : la borne dialogue avec
