@@ -3,6 +3,7 @@ import Image from "next/image";
 import InstagramFeed, {
   INSTAGRAM_PROFILE_URL,
 } from "./components/InstagramFeed";
+import GoogleReviews from "./components/GoogleReviews";
 import ContactForm from "./components/ContactForm";
 
 const SERVICES = [
@@ -177,6 +178,15 @@ export default function Home() {
               )}
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="avis" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <h2 className="text-3xl font-bold text-[var(--color-heading)]">
+          Avis de nos clients
+        </h2>
+        <div className="mt-8">
+          <GoogleReviews />
         </div>
       </section>
 
