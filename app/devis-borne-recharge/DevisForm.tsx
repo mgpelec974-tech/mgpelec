@@ -49,6 +49,19 @@ function getPuissanceOption(label: string | null) {
   return PUISSANCE_OPTIONS.find((option) => option.label === label);
 }
 
+type SecteurOption = { label: string; price: number };
+
+const SECTEUR_OPTIONS: SecteurOption[] = [
+  { label: "Est", price: 30 },
+  { label: "Nord", price: 35 },
+  { label: "Ouest", price: 40 },
+  { label: "Sud", price: 45 },
+];
+
+function getSecteurOption(label: string | null) {
+  return SECTEUR_OPTIONS.find((option) => option.label === label);
+}
+
 // Calibré sur deux devis réels (câble/goulotte ramenés au mètre de câble) :
 //
 // - Bornes SANS TIC (sans borne, autre, 11 kW) — devis n°75 (8 m,
@@ -197,7 +210,7 @@ const GROUPS: { key: GroupKey; label: string; options: string[] }[] = [
   {
     key: "secteur",
     label: "Secteur de votre domicile",
-    options: ["Nord", "Sud", "Est", "Ouest"],
+    options: SECTEUR_OPTIONS.map((option) => option.label),
   },
   {
     key: "logement",
@@ -271,8 +284,11 @@ export default function DevisForm() {
   const onRequest = selection.puissance !== null && puissancePrice === null;
   const hasTic = selectedPuissance?.hasTic ?? false;
   const installCost = getInstallCost(distanceMeters, hasTic);
+  const secteurFee = getSecteurOption(selection.secteur)?.price ?? 0;
   const totalPrice =
-    typeof puissancePrice === "number" ? puissancePrice + installCost : null;
+    typeof puissancePrice === "number"
+      ? puissancePrice + installCost + secteurFee
+      : null;
 
   const answeredCount =
     Object.values(selection).filter(Boolean).length + 1; // +1 pour le curseur, toujours renseigné
@@ -296,6 +312,9 @@ export default function DevisForm() {
           ? `Borne (${selection.puissance}) : prix sur devis, à étudier avec vous`
           : null,
       `Câble, fournitures & pose${hasTic ? " (avec TIC)" : ""} (${distanceMeters} m) : ${priceFormatter.format(installCost)} €`,
+      selection.secteur
+        ? `Déplacement secteur (${selection.secteur}) : ${priceFormatter.format(secteurFee)} €`
+        : null,
       totalPrice !== null
         ? `Total estimé TTC : ${priceFormatter.format(totalPrice)} €`
         : onRequest
@@ -382,6 +401,8 @@ export default function DevisForm() {
                 const puissanceOption =
                   group.key === "puissance" ? getPuissanceOption(option) : undefined;
                 const optionPrice = puissanceOption?.price ?? null;
+                const secteurOption =
+                  group.key === "secteur" ? getSecteurOption(option) : undefined;
                 const priceTag =
                   group.key === "puissance"
                     ? optionPrice === null
@@ -389,7 +410,9 @@ export default function DevisForm() {
                       : optionPrice === 0
                         ? "Fourniture non incluse"
                         : `${priceFormatter.format(optionPrice)} €`
-                    : null;
+                    : group.key === "secteur" && secteurOption
+                      ? `+${priceFormatter.format(secteurOption.price)} €`
+                      : null;
                 return (
                   <button
                     key={option}
@@ -524,6 +547,12 @@ export default function DevisForm() {
                 </span>
                 <span>{priceFormatter.format(installCost)} €</span>
               </div>
+              {selection.secteur && (
+                <div className="flex justify-between">
+                  <span>Déplacement secteur ({selection.secteur})</span>
+                  <span>{priceFormatter.format(secteurFee)} €</span>
+                </div>
+              )}
               {hasTic && (
                 <p className="text-xs text-slate-400">
                   TIC = Télé-Information Client : la borne dialogue avec
