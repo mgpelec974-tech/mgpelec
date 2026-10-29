@@ -56,14 +56,14 @@ function getPuissanceOption(label: string | null) {
 //   (20€) + passage du câble/raccordement (180€) + contrôles/essais/mise
 //   en service (40€) = 429€ fixe, + câble & goulotte ≈ 17€/m.
 //
-// - Borne Hager AVEC TIC — devis n°77 (10 m) : protection intégrée à la
-//   borne (pas d'interrupteur/disjoncteur séparés), passage du câble/
-//   raccordement + paramétrage TIC + essais = 365€ fixe, + câble (avec
-//   liaison TIC) & goulotte ≈ 25,43€/m.
+// - Borne Hager/Schneider AVEC TIC — devis n°77 (10 m) : protection
+//   intégrée à la borne (pas d'interrupteur/disjoncteur séparés), passage
+//   du câble/raccordement + paramétrage TIC + essais = 365€ fixe, + câble
+//   (avec liaison TIC) & goulotte à 28€/m.
 const STANDARD_FIXED_POSE = 429;
 const STANDARD_PER_METER = 17;
 const HAGER_FIXED_POSE = 365;
-const HAGER_PER_METER = 25.43;
+const HAGER_PER_METER = 28;
 const DISTANCE_MIN = 1;
 const DISTANCE_MAX = 40;
 
