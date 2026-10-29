@@ -28,11 +28,6 @@ const PUISSANCE_OPTIONS: PuissanceOption[] = [
     hasTic: true,
   },
   {
-    label: "7 kW Wallbox (monophasé)",
-    price: 550,
-    image: "/produits/wallbox-7kw-monophase.png",
-  },
-  {
     label: "7,4 kW (Schneider Electric)",
     price: 1015,
     image: "/produits/schneider-7-4kw.png",
@@ -51,7 +46,7 @@ function getPuissanceOption(label: string | null) {
 
 // Calibré sur deux devis réels (câble/goulotte ramenés au mètre de câble) :
 //
-// - Bornes SANS TIC (Wallbox, sans borne, autre, 11 kW) — devis n°75 (8 m,
+// - Bornes SANS TIC (sans borne, autre, 11 kW) — devis n°75 (8 m,
 //   pose seule) : interrupteur différentiel (189€) + disjoncteur dédié
 //   (20€) + passage du câble/raccordement (180€) + contrôles/essais/mise
 //   en service (40€) = 429€ fixe, + câble & goulotte ≈ 17€/m.

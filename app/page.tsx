@@ -205,7 +205,7 @@ export default function Home() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <ul className="space-y-3 text-slate-200">
               <li>• Étude technique de votre installation électrique</li>
-              <li>• Bornes Hager et Wallbox selon vos besoins</li>
+              <li>• Bornes Hager et Schneider Electric selon vos besoins</li>
               <li>• Pose en maison individuelle, copropriété ou entreprise</li>
               <li>• Conseils sur les aides et dispositifs en vigueur</li>
             </ul>
