@@ -48,6 +48,15 @@ const SERVICES = [
 export default function Home() {
   return (
     <main>
+      {/* Alerte promo */}
+      <a
+        href="#offre-du-moment"
+        className="block bg-[var(--color-brand)] px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-[var(--color-brand-dark)]"
+      >
+        🔥 Offre du moment : borne Schneider Charge installée à 1&nbsp;500&nbsp;€
+        TTC — stock limité, voir l&apos;offre →
+      </a>
+
       {/* Hero */}
       <section className="relative flex min-h-[640px] items-end overflow-hidden bg-[var(--color-ink)] px-4 pb-12 pt-24 text-center sm:px-6">
         <Image
@@ -89,6 +98,44 @@ export default function Home() {
               className="rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
             >
               Simulez votre devis borne de recharge
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Offre du moment */}
+      <section
+        id="offre-du-moment"
+        className="mx-auto max-w-6xl px-4 py-16 sm:px-6"
+      >
+        <div className="overflow-hidden rounded-2xl border border-black/5 bg-[var(--color-ink)] shadow-sm md:grid md:grid-cols-2 md:items-center">
+          <div className="relative aspect-square md:aspect-auto md:h-full">
+            <Image
+              src="/promo/schneider-charge-promo.png"
+              alt="Promotion borne de recharge Schneider Charge à 1 500 € TTC"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="p-8 text-white sm:p-10">
+            <span className="inline-block rounded-full bg-[var(--color-brand)] px-3 py-1 text-xs font-bold uppercase tracking-wide">
+              Offre du moment — Stock limité
+            </span>
+            <h2 className="mt-4 text-2xl font-extrabold sm:text-3xl">
+              Borne de recharge Schneider Charge installée à 1&nbsp;500&nbsp;€
+              TTC
+            </h2>
+            <ul className="mt-5 space-y-2 text-slate-200">
+              <li>✔ Borne Schneider Charge</li>
+              <li>✔ 10 mètres de câble inclus</li>
+              <li>✔ Installation comprise (mise en service)</li>
+            </ul>
+            <Link
+              href="/devis-borne-recharge"
+              className="mt-6 inline-block rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
+            >
+              Profiter de l&apos;offre
             </Link>
           </div>
         </div>
