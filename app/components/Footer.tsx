@@ -1,4 +1,25 @@
 import Link from "next/link";
+import { INSTAGRAM_PROFILE_URL } from "./InstagramFeed";
+
+const FACEBOOK_PROFILE_URL = "https://www.facebook.com/share/19ZkZevAMN/?mibextid=wwXIfr";
+
+function IconFacebook() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+      <path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.5c0-.9.25-1.5 1.55-1.5H16.5V4.3c-.27-.04-1.2-.12-2.27-.12-2.25 0-3.78 1.37-3.78 3.9V10.5H8v3h2.45V21h3.05Z" />
+    </svg>
+  );
+}
+
+function IconInstagram() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+      <rect x={3.5} y={3.5} width={17} height={17} rx={5} stroke="currentColor" strokeWidth={1.6} />
+      <circle cx={12} cy={12} r={4.2} stroke="currentColor" strokeWidth={1.6} />
+      <circle cx={17.2} cy={6.8} r={1.1} fill="currentColor" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -14,6 +35,26 @@ export default function Footer() {
             Électricien général — installation, dépannage et bornes de
             recharge pour véhicules électriques.
           </p>
+          <div className="mt-4 flex gap-3">
+            <a
+              href={FACEBOOK_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="MGPElec sur Facebook"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-slate-300 transition-colors hover:bg-[var(--color-brand)] hover:text-white"
+            >
+              <IconFacebook />
+            </a>
+            <a
+              href={INSTAGRAM_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="MGPElec sur Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-slate-300 transition-colors hover:bg-[var(--color-brand)] hover:text-white"
+            >
+              <IconInstagram />
+            </a>
+          </div>
         </div>
 
         <div>
