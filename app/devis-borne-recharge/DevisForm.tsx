@@ -268,6 +268,7 @@ export default function DevisForm() {
   const [selection, setSelection] = useState(initialSelection);
   const [distanceMeters, setDistanceMeters] = useState(DISTANCE_MIN);
   const [autreBorneDetails, setAutreBorneDetails] = useState("");
+  const [visitorName, setVisitorName] = useState("");
   const [visitorEmail, setVisitorEmail] = useState("");
   const [visitorPhone, setVisitorPhone] = useState("");
   const [status, setStatus] = useState<SendStatus>("idle");
@@ -326,6 +327,11 @@ export default function DevisForm() {
   };
 
   const handleSend = async () => {
+    if (!visitorName.trim()) {
+      setStatus("error");
+      setErrorMessage("Merci d'indiquer votre nom.");
+      return;
+    }
     if (!visitorEmail || !EMAIL_REGEX.test(visitorEmail)) {
       setStatus("error");
       setErrorMessage("Merci d'indiquer un email valide.");
@@ -347,6 +353,7 @@ export default function DevisForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          visitorName,
           visitorEmail,
           visitorPhone,
           summaryLines,
@@ -585,6 +592,13 @@ export default function DevisForm() {
             <p className="text-xs font-semibold text-slate-500">
               Ou recevez un devis par email, je vous recontacte :
             </p>
+            <input
+              type="text"
+              value={visitorName}
+              onChange={(event) => setVisitorName(event.target.value)}
+              placeholder="Votre nom"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-[var(--color-brand-dark)]"
+            />
             <input
               type="email"
               value={visitorEmail}

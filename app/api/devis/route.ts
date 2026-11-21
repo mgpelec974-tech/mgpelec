@@ -5,6 +5,7 @@ const CONTACT_EMAIL = "mgpelec974@gmail.com";
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type DevisPayload = {
+  visitorName: string;
   visitorEmail: string;
   visitorPhone: string;
   summaryLines: string[];
@@ -27,8 +28,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Requête invalide." }, { status: 400 });
   }
 
-  const { visitorEmail, visitorPhone, summaryLines, priceLines } = payload;
+  const { visitorName, visitorEmail, visitorPhone, summaryLines, priceLines } =
+    payload;
 
+  if (!visitorName || !visitorName.trim()) {
+    return NextResponse.json({ error: "Nom invalide." }, { status: 400 });
+  }
   if (!visitorEmail || !EMAIL_REGEX.test(visitorEmail)) {
     return NextResponse.json({ error: "Email invalide." }, { status: 400 });
   }
@@ -42,6 +47,7 @@ export async function POST(request: Request) {
   const text = [
     "Nouvelle demande de devis - Borne de recharge",
     "",
+    `Nom : ${visitorName}`,
     `Téléphone : ${visitorPhone}`,
     `Email : ${visitorEmail}`,
     "",
@@ -57,7 +63,7 @@ export async function POST(request: Request) {
       from: "MGPElec <onboarding@resend.dev>",
       to: CONTACT_EMAIL,
       replyTo: visitorEmail,
-      subject: `Demande de devis - Borne de recharge (${visitorPhone})`,
+      subject: `Demande de devis - Borne de recharge (${visitorName})`,
       text,
     });
 
