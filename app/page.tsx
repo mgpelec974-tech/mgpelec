@@ -132,7 +132,7 @@ export default function Home() {
               <li>✔ Installation comprise (mise en service)</li>
             </ul>
             <Link
-              href="/devis-borne-recharge"
+              href="/offre-schneider-charge"
               className="mt-6 inline-block rounded-full bg-[var(--color-brand)] px-6 py-3 font-semibold text-white shadow-sm transition-transform hover:scale-105"
             >
               Profiter de l&apos;offre
