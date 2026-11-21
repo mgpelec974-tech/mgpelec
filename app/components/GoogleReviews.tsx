@@ -8,34 +8,34 @@ type Review = {
 
 const REVIEWS: Review[] = [
   {
-    author: "franck grondin",
+    author: "Jacques LEBEAU",
     rating: 5,
-    text: "Très bon travail, rapide et professionnel. Une personne à l'écoute, disponible et efficace. Je recommande vivement !",
+    text: "Devis et délais de réponse rapide. Merci pour les conseils et la pose de la borne !!",
   },
   {
-    author: "Ulrich 974",
+    author: "Damien Boyer",
     rating: 5,
-    text: "Très satisfait du travail réalisé ! Électricien professionnel, ponctuel et à l'écoute. Travail propre, rapide et soigné, avec de bons conseils. Je recommande cette entreprise les yeux fermés.",
+    text: "Je ne peux que recommander la société MGP Elec pour ses prestations efficaces et soigneuses. Il est intervenu à mon domicile pour de la modification de tableau, du passage de câble ainsi que la pose d'une borne de recharge.",
   },
   {
-    author: "Gwendoline SELLY",
+    author: "myrella laravine",
     rating: 5,
-    text: "Merci MGPelec pour les conseils et l'écoute. Je recommande.",
+    text: "Je suis très satisfaite de la pose de ma borne de recharge. Changement de tableau électrique également très professionnel, travail minutieux, je recommande fortement.",
   },
   {
-    author: "Angelie ROBERT",
+    author: "DJ-LIKE ROBERT",
     rating: 5,
-    text: "Super professionnel. Merci MGPELEC",
+    text: "Installation de ma borne de recharge réalisée par MGP Elec. Très bon travail, installation propre et conforme. Les explications sont claires et l'équipe est très professionnelle. Je recommande vivement !",
   },
   {
-    author: "Johanna Ferrere",
+    author: "Laurent MOREL",
     rating: 5,
-    text: "Excellent travail",
+    text: "Je recommande vivement MGP Elec pour son sérieux et son professionnalisme. Du devis jusqu'à la réalisation des travaux, tout s'est très bien passé.",
   },
   {
-    author: "Perrier athenais",
+    author: "Romain Sellom",
     rating: 5,
-    text: "Professionnels efficace et rapide",
+    text: "Top électricien. Tarif correct et conseil personnalisé, je recommande !",
   },
 ];
 
